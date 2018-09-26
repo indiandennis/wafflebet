@@ -3,7 +3,7 @@
     <h1 class="mat-overline" fxFlex>Wafflebet</h1>
 
     <div *ngIf="user !== undefined">
-      <button mat-raised-button color="accent" *ngIf="!checkLogin()" (click)="openLogin()">
+      <button mat-raised-button color="accent" *ngIf="!checkLogin()" (click)="openSignUpModal()">
         <span>SIGN IN</span>
       </button>
 

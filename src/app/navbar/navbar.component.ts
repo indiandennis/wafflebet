@@ -1,8 +1,6 @@
-import { Component, OnInit} from '@angular/core';
-import { MatDialog } from '@angular/material';
-import { LoginDialogComponent } from '../login-dialog/login-dialog.component';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthService } from '../auth.service';
+import {Component, OnInit} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -13,14 +11,13 @@ export class NavbarComponent implements OnInit {
   user: firebase.User;
   loggedIn: boolean;
 
-  openLogin() {
-    const loginDialogRef = this.dialog.open(LoginDialogComponent, {
-      panelClass: 'login-dialog-container'
-    });
+  constructor(
+    public afAuth: AngularFireAuth,
+    public router: Router
+  ) {
   }
 
   checkLogin(): boolean {
-
     return this.loggedIn;
   }
 
@@ -39,16 +36,14 @@ export class NavbarComponent implements OnInit {
     this.afAuth.auth.signOut();
   }
 
-  constructor(public dialog: MatDialog, public afAuth: AngularFireAuth) { }
-
-  ngOnInit() {
-    this.afAuth.user.subscribe(
-      user => {
-        console.log(user);
-        this.loginHandler(user);
-      }
-    );
-
+  openSignUpModal() {
+    this.router.navigate([{outlets: {loginModal: 'signin'}}]);
   }
 
+  ngOnInit() {
+    this.afAuth.user.subscribe(user => {
+      console.log(user);
+      this.loginHandler(user);
+    });
+  }
 }

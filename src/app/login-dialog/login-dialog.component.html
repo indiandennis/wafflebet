@@ -1,9 +1,17 @@
-<div fxLayout="row" [@slideInOut]="dialogState.state" fxLayoutAlign="center center">
+<div fxLayout="row" fxLayoutAlign="center center">
   <div fxLayout="column">
-    <h2 mat-dialog-title>{{dialogState.title}}</h2>
+    <router-outlet name="loginModal"></router-outlet>
+
+  </div>
+</div>
+
+<!-- 
+
+
+<h2 mat-dialog-title>{{dialogState.title}}</h2>
     <form [formGroup]="loginForm" (submit)="submitHandler()">
       <div>
-        <mat-dialog-content >
+        <mat-dialog-content>
           <div *ngIf="dialogState.state !== 'endState'" fxLayout="column">
             <mat-form-field appearance="outline">
               <mat-label>Email</mat-label>
@@ -22,7 +30,7 @@
           </div>
           <p class="mat-body-1" style="max-width: 204px" *ngIf="dialogState.state === 'endState'">{{dialogState.endStateMessage}}</p>
         </mat-dialog-content>
-        <!-- <mat-checkbox formControlName="rememberCred" class="mat-body-1">Remember me</mat-checkbox> -->
+        <mat-checkbox formControlName="rememberCred" class="mat-body-1">Remember me</mat-checkbox>
       </div>
 
       <div mat-dialog-actions fxLayout="row" fxLayoutAlign="start center">
@@ -55,6 +63,4 @@
         </div>
 
       </div>
-    </form>
-  </div>
-</div>
+    </form> -->
