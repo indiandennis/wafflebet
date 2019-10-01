@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Sign In</h2>
+<form [formGroup]="loginForm">
+  <div>
+    <mat-dialog-content>
+      <div fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" name="email" matInput type="email" [errorStateMatcher]="matcher">
+          <mat-error>{{ emailError }}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" name="password" matInput type="password" [errorStateMatcher]="matcher">
+          <mat-hint>
+            <a class="clickable-link" (click)="switchToForgotPass()" style="color:#ff4081">Forgot your password?</a>
+          </mat-hint>
+          <mat-error>{{ passwordError }}</mat-error>
+        </mat-form-field>
+      </div>
+    </mat-dialog-content>
+    <!-- <mat-checkbox formControlName="rememberCred" class="mat-body-1">Remember me</mat-checkbox> -->
+  </div>
+
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="start center">
+
+    <div>
+      <button type="button" mat-stroked-button (click)="switchToSignUp()">
+        <span>Sign Up</span>
+      </button>
+    </div>
+    <div fxFlex></div>
+    <div>
+      <button mat-raised-button color="accent" type="submit" [disabled]="loginForm.invalid" (click)="login()">
+        <span>Sign In</span>
+      </button>
+    </div>
+
+  </div>
+</form>

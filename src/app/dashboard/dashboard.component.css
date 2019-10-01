@@ -1,0 +1,30 @@
+.dashboard {
+  padding: 16px;
+
+}
+
+:host {
+  flex: 1 1 100%;
+}
+
+.profile-image {
+  width: 64px;
+  height: 64px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.add-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+.name {
+  text-align: center;
+  line-height: 1em;
+}
+
+.highlight {
+  color: #df7835;
+}

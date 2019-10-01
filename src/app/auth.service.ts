@@ -9,7 +9,8 @@ export class AuthService {
   ret = false;
   user: firebase.User;
 
-  constructor(public afAuth: AngularFireAuth) {}
+  constructor(public afAuth: AngularFireAuth) {
+  }
 
   logout() {
     this.afAuth.auth.signOut();
@@ -28,9 +29,25 @@ export class AuthService {
   }
 
   verifyEmail(): void {
-    this.afAuth.auth.currentUser.sendEmailVerification().then(function() {
+    this.afAuth.auth.currentUser.sendEmailVerification().then(function () {
       console.log('Verification email sent');
     });
+  }
+
+  getLoginStatus(): string {
+    if (!this.afAuth.auth.currentUser) {
+      return 'loggedOut';
+    } else if (!this.afAuth.auth.currentUser.emailVerified) {
+      return 'emailNotVerified';
+    } else {
+      return 'loggedIn';
+    }
+
+
+  }
+
+  getEmailVerificationStatus(): boolean {
+    return this.afAuth.auth.currentUser.emailVerified;
   }
 
   resetPass(email: string) {

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {Router} from '@angular/router';
+import {DialogService} from '../dialog.service';
 
 @Component({
   selector: 'app-navbar',
@@ -13,7 +14,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     public afAuth: AngularFireAuth,
-    public router: Router
+    public router: Router,
+    private dialog: DialogService
   ) {
   }
 
@@ -38,6 +40,10 @@ export class NavbarComponent implements OnInit {
 
   openSignUpModal() {
     this.router.navigate([{outlets: {loginModal: 'signin'}}]);
+  }
+
+  openSettingsModal() {
+    this.dialog.openSettings();
   }
 
   ngOnInit() {

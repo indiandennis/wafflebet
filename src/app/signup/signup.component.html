@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>
+  <span *ngIf="state === 'signUp'">Sign Up</span>
+  <span *ngIf="state === 'signUpSuccess'">Verification Email Sent</span>
+</h2>
+
+<form [formGroup]="loginForm">
+  <div>
+    <mat-dialog-content>
+      <div *ngIf="state !== 'signUpSuccess'" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" name="email" matInput type="email" [errorStateMatcher]="matcher">
+          <mat-error>{{emailError}}</mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input formControlName="password" name="password" matInput type="password" [errorStateMatcher]="matcher">
+          <mat-error>{{passwordError}}</mat-error>
+        </mat-form-field>
+      </div>
+      <p class="mat-body-1" style="max-width: 204px" *ngIf="state === 'signUpSuccess'">
+        Please click the verification link emailed to you to complete account creation.
+      </p>
+    </mat-dialog-content>
+  </div>
+
+  <div mat-dialog-actions *ngIf="state === 'signUp'" fxLayout="row" fxLayoutAlign="start center">
+    <button type="button" mat-stroked-button (click)="switchToSignIn()">
+      <span>Sign In</span>
+    </button>
+
+    <div fxFlex></div>
+
+    <button mat-raised-button color="accent" type="submit" [disabled]="loginForm.invalid" (click)="signUp()">
+      <span>Sign Up</span>
+    </button>
+  </div>
+
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="center center" *ngIf="state === 'signUpSuccess'">
+    <button mat-raised-button color="accent" (click)="dialogRef.close()">
+      <span>Close</span>
+    </button>
+  </div>
+
+</form>

@@ -1,0 +1,39 @@
+<h2 mat-dialog-title>
+  <span *ngIf="state === 'forgotPass'">Reset Password</span>
+  <span *ngIf="state === 'forgotPassSuccess'">Reset Email Sent</span>
+</h2>
+<form [formGroup]="loginForm">
+  <div>
+    <mat-dialog-content>
+      <div *ngIf="state !== 'forgotPassSuccess'" fxLayout="column">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" name="email" matInput type="email" [errorStateMatcher]="matcher">
+          <mat-error>{{emailError}}</mat-error>
+        </mat-form-field>
+
+      </div>
+      <p class="mat-body-1" style="max-width: 204px" *ngIf="state === 'forgotPassSuccess'">
+        Please click the password reset link emailed to you to complete the reset process.
+      </p>
+    </mat-dialog-content>
+
+  </div>
+
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="start center" *ngIf="state === 'forgotPass'">
+    <button type="button" mat-stroked-button (click)="switchToSignIn()">
+      <span>Sign In</span>
+    </button>
+
+    <div fxFlex></div>
+
+    <button mat-raised-button color="accent" type="submit" [disabled]="loginForm.controls.email.invalid" (click)="forgotPass()">
+      <span>Reset</span>
+    </button>
+  </div>
+  <div mat-dialog-actions fxLayout="row" fxLayoutAlign="center center" *ngIf="state === 'forgotPassSuccess'">
+    <button mat-raised-button color="accent" (click)="dialogRef.close()">
+      <span>Close</span>
+    </button>
+  </div>
+</form>

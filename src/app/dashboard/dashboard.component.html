@@ -1,14 +1,142 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="3em">
-  <div fxFlex="25vh"></div>
-  <div>
-    <mat-card>
-      <mat-card-title>Dashboard login test</mat-card-title>
-      <mat-card-subtitle>This content is only visible to {{user.name}}</mat-card-subtitle>
-      <mat-card-content>
-        <span>hi {{user.name}}!</span>
-      </mat-card-content>
-    </mat-card>
+<div fxLayout="column" fxFlex="grow">
+  <mat-expansion-panel fxLayout="column" fxLayoutGap="10px" style="background-color: #5C6BC0;"
+                       class="mat-elevation-z10">
+    <mat-expansion-panel-header style="justify-content: center;">
+      <span class="mat-button" style="color: #ffffff ">YOUR BETS</span>
+    </mat-expansion-panel-header>
 
+    <mat-grid-list [cols]="numCols" [rowHeight]="cardHeight" [gutterSize]="spaceBetweenCards">
+      <mat-grid-tile>
+        <mat-card fxFlex="98%" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+          <mat-icon aria-label="Incoming bet request" color="primary">call_received</mat-icon>
+          <div fxLayout="column" fxLayoutAlign="start center"
+               fxLayoutGap=".5rem">
+            <img fxFlex="0 0 64px" class="profile-image"
+                 src="https://ui-avatars.com/api/?name=John+Doe&background=FCE4EC&color=E91E63"
+                 alt="user-profile-image">
+            <span class="mat-body-strong name" fxFlex="100%">John Doe</span>
+          </div>
+          <div class="mat-body" fxFlex="100%">
+            The yankees will win the world series in 2019 and some other thigns will happen too test test test
+          </div>
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap=".85rem">
+            <button mat-icon-button matTooltip="Decline" matTooltipPosition="left">
+              <mat-icon aria-label="Decline icon">close</mat-icon>
+            </button>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".25em">
+              <span class="mat-body">5</span>
+              <img src="../../assets/waffle_logo_16px.png"/>
+            </div>
+            <button color="accent" mat-icon-button matTooltip="Accept" matTooltipPosition="left">
+              <mat-icon aria-label="Accept icon">check</mat-icon>
+            </button>
+          </div>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card fxFlex="98%" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+          <mat-icon aria-label="Sent bet request" color="primary">call_made</mat-icon>
+          <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap=".5rem">
+            <img fxFlex="0 0 64px" class="profile-image"
+                 src="https://ui-avatars.com/api/?name=John+Doe&background=FCE4EC&color=E91E63"
+                 alt="user-profile-image">
+            <span class="mat-body-strong name">Jerry Donovan</span>
+          </div>
+
+          <span class="mat-body" fxFlex="100% fxFlex">
+             y will happen sadfj dsfj sdfkj sdfjs dfksdfj
+          </span>
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem">
+            <button mat-icon-button matTooltip="Decline" matTooltipPosition="left">
+              <mat-icon aria-label="Decline bet">close</mat-icon>
+            </button>
+            <span class="mat-body" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".25em">
+              <span>5</span>
+              <img src="../../assets/waffle_logo_16px.png"/>
+            </span>
+          </div>
+        </mat-card>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-card fxFlex="98%" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+          <mat-icon aria-label="Sent bet request" matBadge="!" matBadgeColor="warn" color="primary">gavel</mat-icon>
+          <div fxLayout="column" fxLayoutAlign="start center" fxLayoutGap=".5rem">
+            <img fxFlex="0 0 64px" class="profile-image"
+                 src="https://ui-avatars.com/api/?name=John+Doe&background=FCE4EC&color=E91E63"
+                 alt="user-profile-image">
+            <span class="mat-body-strong name">Jerry Donovan</span>
+          </div>
+
+          <span class="mat-body" fxFlex="100% fxFlex">
+             y will happen sadfj dsfj sdfkj sdfjs dfksdfj
+          </span>
+          <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1rem">
+            <button mat-stroked-button color="accent">
+              True
+            </button>
+            <span class="mat-body" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".25em">
+              <span>5</span>
+              <img src="../../assets/waffle_logo_16px.png"/>
+            </span>
+            <button mat-stroked-button color="accent">
+              False
+            </button>
+          </div>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+
+  </mat-expansion-panel>
+  <div class="dashboard">
+    <mat-grid-list [cols]="numCols" rowHeight="200px" [gutterSize]="spaceBetweenCards">
+      <mat-grid-tile>
+        <mat-card fxFlex="98%" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+          <div fxLayout="column" fxLayoutGap="1rem">
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+              <img fxFlex="0 0 64px" class="profile-image"
+                   src="https://ui-avatars.com/api/?name=John+Doe&background=FCE4EC&color=E91E63"
+                   alt="user-profile-image">
+              <span class="mat-body-strong">Name 1sdfsdfsdf</span>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="1rem">
+              <img fxFlex="0 0 64px" class="profile-image"
+                   src="https://ui-avatars.com/api/?name=Test&background=FCE4EC&color=E91E63"
+                   alt="user-profile-image">
+              <span class="mat-body-strong">Name 2sdfsdfsdfsdf</span>
+            </div>
+          </div>
+          <span class="mat-body" fxLayout="row" fxLayoutAlign="start center" fxLayoutGap=".4em">
+            <span>bet</span>
+            <span>5</span>
+            <img src="../../assets/waffle_logo_16px.png"/>
+            <span>that</span>
+          </span>
+          <span
+            class="mat-body">y will happenasdf asd fsadfsdf </span>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
   </div>
 </div>
 
+
+<button fxShow fxHide.xs="true" mat-fab
+        [disabled]="auth.getLoginStatus() !== 'loggedIn'"
+        matTooltip="{{tooltipMessage}}"
+        [matTooltipPosition]="'left'"
+        *ngIf="auth.getLoginStatus() !== 'loggedOut'"
+        style="position: absolute; bottom: 2rem; right: 2rem;">
+  <mat-icon>add</mat-icon>
+</button>
+
+<button fxShow fxHide.gt-xs="true" mat-mini-fab
+        [disabled]="auth.getLoginStatus() !== 'loggedIn'"
+        matTooltip="{{tooltipMessage}}"
+        [matTooltipPosition]="'left'"
+        *ngIf="auth.getLoginStatus() !== 'loggedOut'"
+        class="add-button">
+  <mat-icon>add</mat-icon>
+</button>
