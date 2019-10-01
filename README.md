@@ -1,5 +1,16 @@
 # Wafflebet
 
+This project was started at Hack on the Hill 2018. The goal was to make a simple application that would allow friends to make bets online. The larger idea behind it was to potentially make this a central location for all internet "points", such as Reddit karma, Facebook likes, etc. Users would be able to connect their other accounts and use the points on a global leaderboard to interact with others. This project is still not fully functional, and may have security vulnerabilities since updating to latest versions is difficult considering how long it has been since the project began. I may complete this sometime in the future if I have time, but it is not a priority as I feel that most of the knowledge and experience I could've gained from this project has already been gleaned, especially since the remaining work is similar to what I already did on the FRC Team 2813 Team Manager application I created in 2015.
+
+
+
+
+
+
+
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
